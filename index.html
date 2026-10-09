@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veilforge — Збірка ПК на замовлення в Івано-Франківську</title>
+  <meta name="description" content="Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років досвіду у збірці, тестуванні та діагностиці.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ComputerStore","name":"Veilforge","description":"Збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську.","telephone":"+380934546301","areaServed":"Івано-Франківськ","sameAs":["https://youtube.com/@veilforgestudio","https://instagram.com/veilforgestudio","https://tiktok.com/@veilforgestudio","https://x.com/veilforgestudio","https://www.techpowerup.com/forums/members/veilforge.258976/","https://www.reddit.com/user/Veilforgestudio/"]}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      height: 100dvh;
+      font-family: 'EB Garamond', serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    /* LEFT PANEL */
+    .left {
+      width: 33%;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 25px;
+      box-sizing: border-box;
+      border-right: 1px solid #222;
+      overflow-y: auto;
+    }
+
+    .logo {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(26px, 2.4vw, 36px);
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .section-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 20px;
+      margin: 30px 0 10px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .about, .services, .contacts, .socials {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #bbb;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .services li {
+      padding: 4px 0;
+    }
+
+    .contacts a {
+      color: #B28F49FF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .socials a {
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .lang {
+      margin-top: 8px;
+    }
+    .lang a {
+      color: #B28F49FF;
+      font-size: 24px;
+      margin: 0 6px;
+      text-decoration: none;
+    }
+
+    /* RIGHT PANEL */
+    .right {
+      width: 67%;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .gallery {
+      column-count: 3;
+      column-gap: 0;
+      width: 100%;
+    }
+
+    .gallery-item {
+      width: 100%;
+      position: relative;
+      margin: 0;
+      break-inside: avoid;
+      overflow: hidden;
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(65%);
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover img,
+    .gallery-item:hover video {
+      filter: brightness(100%);
+      transform: scale(1.03);
+    }
+
+    .overlay {
+      position: absolute;
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #B28F49FF;
+      font-size: 18px;
+      text-align: center;
+      padding: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 16px;
+      color: #B28F49;
+      margin: -18px 0 10px;
+      font-style: italic;
+    }
+    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 10px; }
+    .socials a { color: #B28F49; display: inline-flex; padding: 6px; transition: color .2s; }
+    .socials a:hover { color: #fff; }
+    .socials svg { width: 30px; height: 30px; fill: currentColor; }
+    .socials svg.stroke { fill: none; stroke: currentColor; stroke-width: 2; }
+
+    /* Music toggle */
+    .music-btn {
+      position: fixed;
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #B28F49;
+      background: rgba(17, 17, 17, 0.85);
+      color: #B28F49;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      transition: color .2s, background .2s;
+    }
+    .music-btn:hover { color: #fff; background: #111; }
+    .music-btn svg { width: 22px; height: 22px; }
+    .music-btn .on { display: none; }
+    .music-btn.playing .on { display: block; }
+    .music-btn.playing .off { display: none; }
+
+    /* Custom scrollbar for the left panel */
+    .left, .right {
+      scrollbar-width: thin;                      /* Firefox */
+      scrollbar-color: #B28F49 transparent;
+    }
+    .left::-webkit-scrollbar,
+    .right::-webkit-scrollbar { width: 6px; }     /* Chrome, Edge, Safari */
+    .left::-webkit-scrollbar-track,
+    .right::-webkit-scrollbar-track { background: transparent; }
+    .left::-webkit-scrollbar-thumb,
+    .right::-webkit-scrollbar-thumb {
+      background: #4a3d22;
+      border-radius: 3px;
+    }
+    .left::-webkit-scrollbar-thumb:hover,
+    .right::-webkit-scrollbar-thumb:hover { background: #B28F49; }
+
+    /* Right panel has a white background, so make its track dark to match */
+    .right { background: #0a0a0a; }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    /* Large screens: cap the sidebar so it doesn't get huge */
+    @media (min-width: 1600px) {
+      .left { padding: 50px 40px; }
+      .about, .services, .contacts, .socials { font-size: 18px; }
+      .gallery { column-count: 4; }
+    }
+
+    /* Short laptop screens */
+    @media (max-height: 760px) and (min-width: 901px) {
+      .section-title { margin: 18px 0 6px; font-size: 18px; }
+      .about, .services, .contacts, .socials { font-size: 15px; line-height: 1.5; }
+      .left { padding: 24px 20px; }
+    }
+
+    /* Small laptops / large tablets landscape */
+    @media (max-width: 1200px) and (min-width: 901px) {
+      .left { width: 38%; }
+      .right { width: 62%; }
+      .gallery { column-count: 2; }
+    }
+
+    /* Tablets portrait & phones: stack the panels */
+    @media (max-width: 900px) {
+      body {
+        display: block;
+        height: auto;
+        min-height: 100vh;
+      }
+      .left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 32px 20px;
+        overflow: visible;
+      }
+      .about, .services, .contacts, .socials {
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 17px;
+      }
+      .right {
+        width: 100%;
+        overflow: visible;
+      }
+      .gallery { column-count: 2; }
+      .footer { margin-top: 30px; }
+      .socials a { display: inline-block; padding: 6px; }
+    }
+
+    /* Phones */
+    @media (max-width: 560px) {
+      .left { padding: 24px 16px; }
+      .logo { font-size: 28px; margin-bottom: 20px; }
+      .section-title { font-size: 18px; margin: 24px 0 8px; }
+      .about, .services, .contacts, .socials { font-size: 16px; padding: 0; }
+      .gallery { column-count: 1; }
+      .lang a { font-size: 28px; margin: 0 10px; }
+    }
+
+    /* Touch devices have no hover: show captions and full brightness */
+    @media (hover: none) {
+      .gallery-item img,
+      .gallery-item video { filter: none; }
+      .gallery-item:hover img,
+      .gallery-item:hover video { transform: none; }
+      .overlay {
+        opacity: 1;
+        top: auto;
+        align-items: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+        font-size: 15px;
+        padding: 24px 12px 10px;
+        background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+        pointer-events: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-item img, .gallery-item video, .overlay { transition: none; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="left">
+
+    <div>
+      <div class="logo">Veilforge</div>
+      <div class="tagline" data-i18n="tagline"></div>
+
+      <div id="about" class="section-title" data-i18n="about_title"></div>
+      <div class="about" data-i18n="about_text"></div>
+
+      <div id="services" class="section-title" data-i18n="services_title"></div>
+      <div class="services">
+        <ul>
+          <li data-i18n="service1"></li>
+          <li data-i18n="service2"></li>
+          <li data-i18n="service3"></li>
+          <li data-i18n="service4"></li>
+        </ul>
+      </div>
+
+      <div id="contacts" class="section-title" data-i18n="contacts_title"></div>
+      <div class="contacts">
+        <span data-i18n="phone_label"></span> <a href="tel:+380934546301">093 454 63 01</a><br>
+        WhatsApp: <a href="https://wa.me/380934546301" target="_blank" rel="noopener">wa.me/380934546301</a><br>
+        <span data-i18n="area"></span>
+      </div>
+
+      <div id="socials" class="section-title" data-i18n="socials_title"></div>
+      <div class="socials">
+        <a href="https://youtube.com/@veilforgestudio" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg class="stroke" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" style="fill:currentColor;stroke:none"/></svg>
+        </a>
+        <a href="https://instagram.com/veilforgestudio" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="stroke" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" style="fill:currentColor;stroke:none"/></svg>
+        </a>
+        <a href="https://tiktok.com/@veilforgestudio" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://x.com/veilforgestudio" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+        </a>
+        <a href="https://www.techpowerup.com/forums/members/veilforge.258976/" target="_blank" rel="noopener" aria-label="TechPowerUp">
+          <svg viewBox="0 0 24 24"><rect x="1.5" y="5" width="21" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="15.4" text-anchor="middle" font-size="8.5" font-weight="700" font-family="Arial, sans-serif" fill="currentColor">TPU</text></svg>
+        </a>
+        <a href="https://www.reddit.com/user/Veilforgestudio/" target="_blank" rel="noopener" aria-label="Reddit">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="8" ry="5.8"/><circle cx="4.3" cy="11.6" r="2"/><circle cx="19.7" cy="11.6" r="2"/><path d="M12 8.4 13.2 3l4.4 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18.6" cy="4.4" r="1.6"/><circle cx="9" cy="13" r="1.3" fill="#111"/><circle cx="15" cy="13" r="1.3" fill="#111"/><path d="M9.2 16.3q2.8 1.7 5.6 0" fill="none" stroke="#111" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      © Veilforge 2026
+
+      <div class="lang">
+        <a class="ua" href="#" aria-label="Українська">🇺🇦</a>
+        <a class="gb" href="#" aria-label="English">🇬🇧</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="right">
+    <div class="gallery">
+
+      <div class="gallery-item"><img loading="lazy" src="media/image/1.png" alt="Veilforge PC 1"><div class="overlay" data-i18n="ov_1"></div></div>
+      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/1.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_4"></div></div>
+      <div class="gallery-item"><img loading="lazy" src="media/image/2.png" alt="Veilforge PC 2"><div class="overlay" data-i18n="ov_6"></div></div>
+      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/2.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_2"></div></div>
+      <div class="gallery-item"><img loading="lazy" src="media/image/3.png" alt="Veilforge PC 3"><div class="overlay" data-i18n="ov_5"></div></div>
+      <div class="gallery-item"><img loading="lazy" src="media/image/4.png" alt="Veilforge PC 4"><div class="overlay" data-i18n="ov_3"></div></div>
+      <div class="gallery-item"><img loading="lazy" src="media/image/5.png" alt="Veilforge PC 5"><div class="overlay" data-i18n="ov_3"></div></div>
+      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/3.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_1"></div></div>
+      <div class="gallery-item"><img loading="lazy" src="media/image/6.png" alt="Veilforge PC 6"><div class="overlay" data-i18n="ov_6"></div></div>
+
+    </div>
+  </div>
+
+<audio id="soundtrack" src="media/audio/soundtrack.mp3" loop preload="none"></audio>
+<button id="musicBtn" class="music-btn" type="button" aria-label="Music">
+  <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+  <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+</button>
+
+<script>
+const translations = {
+  uk: {
+    tagline: "Збірка ПК на замовлення · Моддинг",
+    about_title: "Про мене",
+    about_text: `Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.`,
+    services_title: "Послуги",
+    service1: "• <b>Збірка ПК на замовлення</b><br>Комп’ютер з нових комплектуючих для ігор, роботи та творчості.",
+    service2: "• <b>Підбір комплектуючих</b><br>Збалансована конфігурація під бюджет, без переплат за бренд.",
+    service3: "• <b>Моддинг і кастомізація корпусів</b><br>Унікальні ПК: кастомні елементи, рідинне охолодження, освітлення, 3D-моделювання.",
+    service4: "• <b>Тестування та діагностика</b><br>Перевірка стабільності, температур і продуктивності.",
+    contacts_title: "Контакти",
+    phone_label: "Телефон:",
+    area: "Івано-Франківськ. Формат виконання та передачу комп’ютера узгоджуємо індивідуально.",
+    socials_title: "Соцмережі",
+    ov_1: "Кастомний ПК діарама Astronaut",
+    ov_2: "Проєкт Asgard для компанії DC Link",
+    ov_3: "Кабель-менеджмент",
+    ov_4: "Кастомний ПК діарама Little Nightmares",
+    ov_5: "Збірка з баштою",
+    ov_6: "Збірка з AIO",
+    music: "Музика"
+  },
+  en: {
+    tagline: "Custom PC builds · Case modding",
+    about_title: "About",
+    about_text: `Veilforge builds custom PCs and does custom case modding in Ivano-Frankivsk. Over 5 years of professional experience in building, testing and diagnosing computers.`,
+    services_title: "Services",
+    service1: "• <b>Custom PC Builds</b><br>New-component PCs for gaming, work and creative tasks.",
+    service2: "• <b>Component Selection</b><br>A balanced configuration for your budget, no brand-name markup.",
+    service3: "• <b>Case Modding & Customization</b><br>Unique PCs: custom parts, liquid cooling, lighting, 3D modeling.",
+    service4: "• <b>Testing & Diagnostics</b><br>Stability, temperature and performance checks.",
+    contacts_title: "Contacts",
+    phone_label: "Phone:",
+    area: "Ivano-Frankivsk. Order format and PC handover are agreed individually.",
+    socials_title: "Socials",
+    ov_1: "Custom PC: Astronaut diorama",
+    ov_2: "Asgard project for DC Link",
+    ov_3: "Cable management",
+    ov_4: "Custom PC: Little Nightmares diorama",
+    ov_5: "Tower air cooler build",
+    ov_6: "AIO liquid cooled build",
+    music: "Music"
+  }
+};
+
+const audio = document.getElementById('soundtrack');
+const musicBtn = document.getElementById('musicBtn');
+audio.volume = 0.5;
+
+function syncMusicBtn() { musicBtn.classList.toggle('playing', !audio.paused); }
+audio.addEventListener('play', syncMusicBtn);
+audio.addEventListener('pause', syncMusicBtn);
+
+// Browsers block sound until the visitor interacts, so start on the first real click/tap/key
+const starters = ['click', 'touchend', 'keydown'];
+function firstInteraction(e) {
+  if (musicBtn.contains(e.target)) return;
+  audio.play().then(() => starters.forEach(ev => document.removeEventListener(ev, firstInteraction)))
+              .catch(() => {});
+}
+starters.forEach(ev => document.addEventListener(ev, firstInteraction));
+
+musicBtn.addEventListener('click', () => {
+  starters.forEach(ev => document.removeEventListener(ev, firstInteraction));
+  if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+});
+
+// Pause when the tab is hidden, resume if it was playing
+let wasPlaying = false;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { wasPlaying = !audio.paused; audio.pause(); }
+  else if (wasPlaying) audio.play().catch(() => {});
+});
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.innerHTML = translations[lang][el.dataset.i18n];
+  });
+  musicBtn.setAttribute('aria-label', translations[lang].music);
+  musicBtn.title = translations[lang].music;
+}
+
+document.querySelector(".lang .gb").onclick = e => { e.preventDefault(); setLanguage("en"); };
+document.querySelector(".lang .ua").onclick = e => { e.preventDefault(); setLanguage("uk"); };
+setLanguage("uk");
+</script>
+
+</body>
+</html>
