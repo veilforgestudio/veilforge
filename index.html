@@ -5,9 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Veilforge — Збірка ПК на замовлення в Івано-Франківську</title>
   <meta name="description" content="Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років досвіду у збірці, тестуванні та діагностиці.">
+  <link rel="canonical" href="https://veilforgestudio.github.io/veilforge/">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="..."> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Veilforge">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Veilforge — Збірка ПК на замовлення в Івано-Франківську">
+  <meta property="og:description" content="Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.">
+  <meta property="og:url" content="https://veilforgestudio.github.io/veilforge/">
+  <meta property="og:image" content="https://veilforgestudio.github.io/veilforge/media/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ComputerStore","name":"Veilforge","description":"Збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську.","telephone":"+380934546301","areaServed":"Івано-Франківськ","sameAs":["https://youtube.com/@veilforgestudio","https://instagram.com/veilforgestudio","https://tiktok.com/@veilforgestudio","https://x.com/veilforgestudio","https://www.techpowerup.com/forums/members/veilforge.258976/","https://www.reddit.com/user/Veilforgestudio/"]}
+  {"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://veilforgestudio.github.io/veilforge/#business", "name": "Veilforge", "description": "Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.", "url": "https://veilforgestudio.github.io/veilforge/", "image": "https://veilforgestudio.github.io/veilforge/media/og.jpg", "telephone": "+380934546301", "address": {"@type": "PostalAddress", "addressLocality": "Івано-Франківськ", "addressRegion": "Івано-Франківська область", "addressCountry": "UA"}, "areaServed": {"@type": "City", "name": "Івано-Франківськ"}, "knowsAbout": ["збірка ПК на замовлення", "моддинг ПК", "кастомізація корпусів", "рідинне охолодження", "діагностика комп’ютерів"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Послуги Veilforge", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Збірка ПК на замовлення"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Підбір комплектуючих"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Моддинг і кастомізація корпусів"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Тестування та діагностика"}}]}, "sameAs": ["https://youtube.com/@veilforgestudio", "https://instagram.com/veilforgestudio", "https://tiktok.com/@veilforgestudio", "https://x.com/veilforgestudio", "https://www.techpowerup.com/forums/members/veilforge.258976/", "https://www.reddit.com/user/Veilforgestudio/"]}
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
 
   <style>
@@ -36,7 +52,10 @@
       overflow-y: auto;
     }
 
+    h1, h2, h3 { font-weight: 700; }
+
     .logo {
+      margin-top: 0;
       font-family: 'Cinzel Decorative', serif;
       font-size: clamp(26px, 2.4vw, 36px);
       text-align: center;
@@ -213,6 +232,13 @@
     /* Right panel has a white background, so make its track dark to match */
     .right { background: #0a0a0a; }
 
+    .steps { list-style: none; margin: 0; counter-reset: step; }
+    .steps li { padding: 4px 0; }
+    .steps li::before { counter-increment: step; content: counter(step) ". "; color: #B28F49; font-weight: bold; }
+    .faq details { border-bottom: 1px solid #222; padding: 8px 0; }
+    .faq summary { cursor: pointer; color: #B28F49; font-weight: bold; }
+    .faq p { margin: 6px 0 0; }
+
     /* ---------- RESPONSIVE ---------- */
 
     /* Large screens: cap the sidebar so it doesn't get huge */
@@ -305,30 +331,46 @@
   <div class="left">
 
     <div>
-      <div class="logo">Veilforge</div>
-      <div class="tagline" data-i18n="tagline"></div>
+      <h1 class="logo">Veilforge</h1>
+      <p class="tagline" data-i18n="tagline">Збірка ПК на замовлення в Івано-Франківську · Моддинг</p>
 
-      <div id="about" class="section-title" data-i18n="about_title"></div>
-      <div class="about" data-i18n="about_text"></div>
+      <h2 id="about" class="section-title" data-i18n="about_title">Про мене</h2>
+      <div class="about" data-i18n="about_text">Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.</div>
 
-      <div id="services" class="section-title" data-i18n="services_title"></div>
+      <h2 id="services" class="section-title" data-i18n="services_title">Послуги</h2>
       <div class="services">
         <ul>
-          <li data-i18n="service1"></li>
-          <li data-i18n="service2"></li>
-          <li data-i18n="service3"></li>
-          <li data-i18n="service4"></li>
+          <li data-i18n="service1">• <b>Збірка ПК на замовлення</b><br>Комп’ютер з нових комплектуючих для ігор, роботи та творчості.</li>
+          <li data-i18n="service2">• <b>Підбір комплектуючих</b><br>Збалансована конфігурація під бюджет, без переплат за бренд.</li>
+          <li data-i18n="service3">• <b>Моддинг і кастомізація корпусів</b><br>Унікальні ПК: кастомні елементи, рідинне охолодження, освітлення, 3D-моделювання.</li>
+          <li data-i18n="service4">• <b>Тестування та діагностика</b><br>Перевірка стабільності, температур і продуктивності.</li>
         </ul>
       </div>
 
-      <div id="contacts" class="section-title" data-i18n="contacts_title"></div>
-      <div class="contacts">
-        <span data-i18n="phone_label"></span> <a href="tel:+380934546301">093 454 63 01</a><br>
-        WhatsApp: <a href="https://wa.me/380934546301" target="_blank" rel="noopener">wa.me/380934546301</a><br>
-        <span data-i18n="area"></span>
+      <h2 id="how" class="section-title" data-i18n="steps_title">Як це працює</h2>
+      <ol class="about steps">
+        <li data-i18n="step1"><b>Обговорення</b><br>Бюджет і задачі: ігри, робота чи творчість.</li>
+        <li data-i18n="step2"><b>Підбір</b><br>Збалансована конфігурація з нових комплектуючих.</li>
+        <li data-i18n="step3"><b>Збірка і тестування</b><br>Збірка ПК, перевірка стабільності та температур.</li>
+        <li data-i18n="step4"><b>Передача</b><br>Формат передачі комп’ютера узгоджуємо індивідуально.</li>
+      </ol>
+
+      <h2 id="faq" class="section-title" data-i18n="faq_title">Питання й відповіді</h2>
+      <div class="about faq">
+        <details><summary data-i18n="q1">Де ви працюєте?</summary><p data-i18n="a1">В Івано-Франківську. Формат виконання замовлення та передачу комп’ютера узгоджуємо індивідуально.</p></details>
+        <details><summary data-i18n="q2">З яких комплектуючих збираєте ПК?</summary><p data-i18n="a2">З нових комплектуючих, підібраних під ваш бюджет і задачі.</p></details>
+        <details><summary data-i18n="q3">Чи можливий кастомний корпус?</summary><p data-i18n="a3">Так: кастомні елементи, рідинне охолодження, освітлення та 3D-моделювання.</p></details>
+        <details><summary data-i18n="q4">Як замовити збірку?</summary><p data-i18n="a4">Зателефонуйте за номером +38 093 454 63 01 або напишіть у WhatsApp, і ми обговоримо бюджет та задачі.</p></details>
       </div>
 
-      <div id="socials" class="section-title" data-i18n="socials_title"></div>
+      <h2 id="contacts" class="section-title" data-i18n="contacts_title">Контакти</h2>
+      <div class="contacts">
+        <span data-i18n="phone_label">Телефон:</span> <a href="tel:+380934546301">+38 093 454 63 01</a><br>
+        WhatsApp: <a href="https://wa.me/380934546301" target="_blank" rel="noopener">wa.me/380934546301</a><br>
+        <span data-i18n="area">Івано-Франківськ. Формат виконання та передачу комп’ютера узгоджуємо індивідуально.</span>
+      </div>
+
+      <h2 id="socials" class="section-title" data-i18n="socials_title">Соцмережі</h2>
       <div class="socials">
         <a href="https://youtube.com/@veilforgestudio" target="_blank" rel="noopener" aria-label="YouTube">
           <svg class="stroke" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" style="fill:currentColor;stroke:none"/></svg>
@@ -362,21 +404,21 @@
   </div>
 
 
-  <div class="right">
+  <main class="right">
     <div class="gallery">
 
-      <div class="gallery-item"><img loading="lazy" src="media/image/1.png" alt="Veilforge PC 1"><div class="overlay" data-i18n="ov_1"></div></div>
-      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/1.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_4"></div></div>
-      <div class="gallery-item"><img loading="lazy" src="media/image/2.png" alt="Veilforge PC 2"><div class="overlay" data-i18n="ov_6"></div></div>
-      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/2.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_2"></div></div>
-      <div class="gallery-item"><img loading="lazy" src="media/image/3.png" alt="Veilforge PC 3"><div class="overlay" data-i18n="ov_5"></div></div>
-      <div class="gallery-item"><img loading="lazy" src="media/image/4.png" alt="Veilforge PC 4"><div class="overlay" data-i18n="ov_3"></div></div>
-      <div class="gallery-item"><img loading="lazy" src="media/image/5.png" alt="Veilforge PC 5"><div class="overlay" data-i18n="ov_3"></div></div>
-      <div class="gallery-item"><video playsinline preload="metadata" src="media/movie/3.mp4" autoplay loop muted></video><div class="overlay" data-i18n="ov_1"></div></div>
-      <div class="gallery-item"><img loading="lazy" src="media/image/6.png" alt="Veilforge PC 6"><div class="overlay" data-i18n="ov_6"></div></div>
+      <div class="gallery-item"><img fetchpriority="high" decoding="async" src="media/image/1.webp" width="1080" height="1080" alt="Кастомний ПК у стилі діорами Astronaut, Veilforge" data-alt="i1"><div class="overlay" data-i18n="ov_1">Кастомний ПК діарама Astronaut</div></div>
+      <div class="gallery-item"><video playsinline autoplay preload="metadata" width="540" height="960" src="media/movie/1.mp4" loop muted aria-label="Відео: кастомний ПК у стилі діорами Little Nightmares" data-alt="v1"></video><div class="overlay" data-i18n="ov_4">Кастомний ПК діарама Little Nightmares</div></div>
+      <div class="gallery-item"><img decoding="async" src="media/image/2.webp" width="1080" height="1080" alt="Збірка ПК з рідинним охолодженням AIO, Veilforge" data-alt="i2"><div class="overlay" data-i18n="ov_6">Збірка з AIO</div></div>
+      <div class="gallery-item"><video playsinline autoplay preload="metadata" width="540" height="960" src="media/movie/2.mp4" loop muted aria-label="Відео: проєкт Asgard для компанії DC Link" data-alt="v2"></video><div class="overlay" data-i18n="ov_2">Проєкт Asgard для компанії DC Link</div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="media/image/3.webp" width="1080" height="1080" alt="Збірка ПК з баштовим кулером, Veilforge" data-alt="i3"><div class="overlay" data-i18n="ov_5">Збірка з баштою</div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="media/image/4.webp" width="1080" height="1080" alt="Акуратний кабель-менеджмент у збірці ПК, Veilforge" data-alt="i4"><div class="overlay" data-i18n="ov_3">Кабель-менеджмент</div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="media/image/5.webp" width="1080" height="1080" alt="Кабель-менеджмент у кастомному ПК, Veilforge" data-alt="i5"><div class="overlay" data-i18n="ov_3">Кабель-менеджмент</div></div>
+      <div class="gallery-item"><video playsinline autoplay preload="metadata" width="540" height="960" src="media/movie/3.mp4" loop muted aria-label="Відео: кастомний ПК у стилі діорами Astronaut" data-alt="v3"></video><div class="overlay" data-i18n="ov_1">Кастомний ПК діарама Astronaut</div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="media/image/6.webp" width="1080" height="1080" alt="Кастомний ПК з охолодженням AIO та RGB-підсвіткою, Veilforge" data-alt="i6"><div class="overlay" data-i18n="ov_6">Збірка з AIO</div></div>
 
     </div>
-  </div>
+  </main>
 
 <audio id="soundtrack" src="media/audio/soundtrack.mp3" loop preload="none"></audio>
 <button id="musicBtn" class="music-btn" type="button" aria-label="Music">
@@ -386,48 +428,96 @@
 
 <script>
 const translations = {
-  uk: {
-    tagline: "Збірка ПК на замовлення · Моддинг",
-    about_title: "Про мене",
-    about_text: `Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.`,
-    services_title: "Послуги",
-    service1: "• <b>Збірка ПК на замовлення</b><br>Комп’ютер з нових комплектуючих для ігор, роботи та творчості.",
-    service2: "• <b>Підбір комплектуючих</b><br>Збалансована конфігурація під бюджет, без переплат за бренд.",
-    service3: "• <b>Моддинг і кастомізація корпусів</b><br>Унікальні ПК: кастомні елементи, рідинне охолодження, освітлення, 3D-моделювання.",
-    service4: "• <b>Тестування та діагностика</b><br>Перевірка стабільності, температур і продуктивності.",
-    contacts_title: "Контакти",
-    phone_label: "Телефон:",
-    area: "Івано-Франківськ. Формат виконання та передачу комп’ютера узгоджуємо індивідуально.",
-    socials_title: "Соцмережі",
-    ov_1: "Кастомний ПК діарама Astronaut",
-    ov_2: "Проєкт Asgard для компанії DC Link",
-    ov_3: "Кабель-менеджмент",
-    ov_4: "Кастомний ПК діарама Little Nightmares",
-    ov_5: "Збірка з баштою",
-    ov_6: "Збірка з AIO",
-    music: "Музика"
-  },
-  en: {
-    tagline: "Custom PC builds · Case modding",
-    about_title: "About",
-    about_text: `Veilforge builds custom PCs and does custom case modding in Ivano-Frankivsk. Over 5 years of professional experience in building, testing and diagnosing computers.`,
-    services_title: "Services",
-    service1: "• <b>Custom PC Builds</b><br>New-component PCs for gaming, work and creative tasks.",
-    service2: "• <b>Component Selection</b><br>A balanced configuration for your budget, no brand-name markup.",
-    service3: "• <b>Case Modding & Customization</b><br>Unique PCs: custom parts, liquid cooling, lighting, 3D modeling.",
-    service4: "• <b>Testing & Diagnostics</b><br>Stability, temperature and performance checks.",
-    contacts_title: "Contacts",
-    phone_label: "Phone:",
-    area: "Ivano-Frankivsk. Order format and PC handover are agreed individually.",
-    socials_title: "Socials",
-    ov_1: "Custom PC: Astronaut diorama",
-    ov_2: "Asgard project for DC Link",
-    ov_3: "Cable management",
-    ov_4: "Custom PC: Little Nightmares diorama",
-    ov_5: "Tower air cooler build",
-    ov_6: "AIO liquid cooled build",
-    music: "Music"
-  }
+ "uk": {
+  "title": "Veilforge — Збірка ПК на замовлення в Івано-Франківську",
+  "tagline": "Збірка ПК на замовлення в Івано-Франківську · Моддинг",
+  "about_title": "Про мене",
+  "about_text": "Veilforge — збірка комп’ютерів на замовлення та кастомний моддинг ПК в Івано-Франківську. Понад 5 років професійного досвіду у збірці, тестуванні та діагностиці.",
+  "services_title": "Послуги",
+  "service1": "• <b>Збірка ПК на замовлення</b><br>Комп’ютер з нових комплектуючих для ігор, роботи та творчості.",
+  "service2": "• <b>Підбір комплектуючих</b><br>Збалансована конфігурація під бюджет, без переплат за бренд.",
+  "service3": "• <b>Моддинг і кастомізація корпусів</b><br>Унікальні ПК: кастомні елементи, рідинне охолодження, освітлення, 3D-моделювання.",
+  "service4": "• <b>Тестування та діагностика</b><br>Перевірка стабільності, температур і продуктивності.",
+  "steps_title": "Як це працює",
+  "step1": "<b>Обговорення</b><br>Бюджет і задачі: ігри, робота чи творчість.",
+  "step2": "<b>Підбір</b><br>Збалансована конфігурація з нових комплектуючих.",
+  "step3": "<b>Збірка і тестування</b><br>Збірка ПК, перевірка стабільності та температур.",
+  "step4": "<b>Передача</b><br>Формат передачі комп’ютера узгоджуємо індивідуально.",
+  "faq_title": "Питання й відповіді",
+  "q1": "Де ви працюєте?",
+  "a1": "В Івано-Франківську. Формат виконання замовлення та передачу комп’ютера узгоджуємо індивідуально.",
+  "q2": "З яких комплектуючих збираєте ПК?",
+  "a2": "З нових комплектуючих, підібраних під ваш бюджет і задачі.",
+  "q3": "Чи можливий кастомний корпус?",
+  "a3": "Так: кастомні елементи, рідинне охолодження, освітлення та 3D-моделювання.",
+  "q4": "Як замовити збірку?",
+  "a4": "Зателефонуйте за номером 093 454 63 01 або напишіть у WhatsApp, і ми обговоримо бюджет та задачі.",
+  "contacts_title": "Контакти",
+  "phone_label": "Телефон:",
+  "area": "Івано-Франківськ. Формат виконання та передачу комп’ютера узгоджуємо індивідуально.",
+  "socials_title": "Соцмережі",
+  "ov_1": "Кастомний ПК діарама Astronaut",
+  "ov_2": "Проєкт Asgard для компанії DC Link",
+  "ov_3": "Кабель-менеджмент",
+  "ov_4": "Кастомний ПК діарама Little Nightmares",
+  "ov_5": "Збірка з баштою",
+  "ov_6": "Збірка з AIO",
+  "i1": "Кастомний ПК у стилі діорами Astronaut, Veilforge",
+  "i2": "Збірка ПК з рідинним охолодженням AIO, Veilforge",
+  "i3": "Збірка ПК з баштовим кулером, Veilforge",
+  "i4": "Акуратний кабель-менеджмент у збірці ПК, Veilforge",
+  "i5": "Кабель-менеджмент у кастомному ПК, Veilforge",
+  "i6": "Кастомний ПК з охолодженням AIO та RGB-підсвіткою, Veilforge",
+  "v1": "Відео: кастомний ПК у стилі діорами Little Nightmares",
+  "v2": "Відео: проєкт Asgard для компанії DC Link",
+  "v3": "Відео: кастомний ПК у стилі діорами Astronaut",
+  "music": "Музика"
+ },
+ "en": {
+  "title": "Veilforge — Custom PC Builds in Ivano-Frankivsk",
+  "tagline": "Custom PC builds in Ivano-Frankivsk · Case modding",
+  "about_title": "About",
+  "about_text": "Veilforge builds custom PCs and does custom case modding in Ivano-Frankivsk. Over 5 years of professional experience in building, testing and diagnosing computers.",
+  "services_title": "Services",
+  "service1": "• <b>Custom PC Builds</b><br>New-component PCs for gaming, work and creative tasks.",
+  "service2": "• <b>Component Selection</b><br>A balanced configuration for your budget, no brand-name markup.",
+  "service3": "• <b>Case Modding & Customization</b><br>Unique PCs: custom parts, liquid cooling, lighting, 3D modeling.",
+  "service4": "• <b>Testing & Diagnostics</b><br>Stability, temperature and performance checks.",
+  "steps_title": "How it works",
+  "step1": "<b>Discussion</b><br>Your budget and tasks: gaming, work or creative.",
+  "step2": "<b>Selection</b><br>A balanced configuration of new components.",
+  "step3": "<b>Build & testing</b><br>PC assembly, stability and temperature checks.",
+  "step4": "<b>Handover</b><br>The way we hand over the PC is agreed individually.",
+  "faq_title": "FAQ",
+  "q1": "Where do you work?",
+  "a1": "In Ivano-Frankivsk. Order format and PC handover are agreed individually.",
+  "q2": "What parts do you use?",
+  "a2": "New components chosen for your budget and tasks.",
+  "q3": "Is a custom case possible?",
+  "a3": "Yes: custom parts, liquid cooling, lighting and 3D modeling.",
+  "q4": "How do I order a build?",
+  "a4": "Call 093 454 63 01 or message on WhatsApp, and we will discuss your budget and tasks.",
+  "contacts_title": "Contacts",
+  "phone_label": "Phone:",
+  "area": "Ivano-Frankivsk. Order format and PC handover are agreed individually.",
+  "socials_title": "Socials",
+  "ov_1": "Custom PC: Astronaut diorama",
+  "ov_2": "Asgard project for DC Link",
+  "ov_3": "Cable management",
+  "ov_4": "Custom PC: Little Nightmares diorama",
+  "ov_5": "Tower air cooler build",
+  "ov_6": "AIO liquid cooled build",
+  "i1": "Custom PC with an Astronaut diorama by Veilforge",
+  "i2": "PC build with an AIO liquid cooler by Veilforge",
+  "i3": "PC build with a tower air cooler by Veilforge",
+  "i4": "Neat cable management in a PC build",
+  "i5": "Cable management inside a custom PC by Veilforge",
+  "i6": "Custom PC with AIO cooling and RGB lighting by Veilforge",
+  "v1": "Video: custom PC with a Little Nightmares diorama",
+  "v2": "Video: Asgard project for DC Link",
+  "v3": "Video: custom PC with an Astronaut diorama",
+  "music": "Music"
+ }
 };
 
 const audio = document.getElementById('soundtrack');
@@ -460,17 +550,31 @@ document.addEventListener('visibilitychange', () => {
 });
 
 function setLanguage(lang) {
+  const t = translations[lang];
   document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.innerHTML = translations[lang][el.dataset.i18n];
+  document.title = t.title;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t[el.dataset.i18n]; });
+  document.querySelectorAll('[data-alt]').forEach(el => {
+    el.setAttribute(el.tagName === 'IMG' ? 'alt' : 'aria-label', t[el.dataset.alt]);
   });
-  musicBtn.setAttribute('aria-label', translations[lang].music);
-  musicBtn.title = translations[lang].music;
+  musicBtn.setAttribute('aria-label', t.music);
+  musicBtn.title = t.music;
 }
 
 document.querySelector(".lang .gb").onclick = e => { e.preventDefault(); setLanguage("en"); };
 document.querySelector(".lang .ua").onclick = e => { e.preventDefault(); setLanguage("uk"); };
-setLanguage("uk");
+
+// Gallery videos always play (muted, looped). Retry if the browser delays autoplay.
+document.querySelectorAll('.gallery video').forEach(v => {
+  v.muted = true;
+  const go = () => { if (v.paused) v.play().catch(() => {}); };
+  go();
+  v.addEventListener('loadeddata', go);
+  v.addEventListener('canplay', go);
+  v.addEventListener('pause', () => setTimeout(go, 300));
+});
+['click', 'touchstart', 'scroll'].forEach(ev =>
+  document.addEventListener(ev, () => document.querySelectorAll('.gallery video').forEach(v => { if (v.paused) v.play().catch(() => {}); }), { once: true, passive: true }));
 </script>
 
 </body>
